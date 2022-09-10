@@ -1,7 +1,9 @@
 using UnityEngine.Events;
 using UnityEngine;
 
-
+/// <summary>
+/// Waypoints controller.
+/// </summary>
 public class PathDirector : MonoBehaviour
 {
     [Tooltip("Player's start position/rotation is first waypoint!")]
@@ -35,7 +37,7 @@ public class PathDirector : MonoBehaviour
     private void OnWaypointReached()
     {
         // Rotate player for shooting
-        _movablePlayer.SetNewRotation(_waypoints[_waypointIndex].Rotation);
+        _movablePlayer.SetNewRotationSmooth(_waypoints[_waypointIndex].Rotation);
         WaypointReached?.Invoke(_waypoints[_waypointIndex++].Type);
     }
 }

@@ -1,8 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine;
 
+
+/// <summary>
+/// Enemies' (and other actors) spots controller.
+/// </summary>
 public class TargetsSpotter : MonoBehaviour
 {
     [Tooltip("Fill only spots with enemies, don't initialize empty spots")]
@@ -13,19 +16,19 @@ public class TargetsSpotter : MonoBehaviour
     private void Start()
     {
         foreach (var spot in _targetsSpots)
+        {
             spot.Initialize();
-
-        foreach (var targets in _targetsSpots)
-            targets.OnSpotCleared = SpotCleared;
+            spot.OnSpotCleared = SpotCleared;
+        }
     }
 
-    private void SpotCleared()
-    {
-        OnTargetsCleared?.Invoke();
-    }
+    private void SpotCleared() => OnTargetsCleared?.Invoke();
 }
 
 
+/// <summary>
+/// Spot's handler which is set in the inspector.
+/// </summary>
 [System.Serializable]
 public class TargetsSpot
 {

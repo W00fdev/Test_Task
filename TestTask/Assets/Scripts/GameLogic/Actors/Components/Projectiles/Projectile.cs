@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshRenderer))]
@@ -39,7 +37,7 @@ public class Projectile : MonoBehaviour, IPoolable
 
     private void MoveBullet()
     {
-        var position = transform.position + _speed * Time.fixedDeltaTime * _direction;
+        var position = transform.position + (_speed * Time.fixedDeltaTime) * _direction;
         _rigidbody.MovePosition(position);
     }
 

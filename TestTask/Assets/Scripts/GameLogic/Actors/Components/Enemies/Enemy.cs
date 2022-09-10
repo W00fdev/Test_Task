@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Can be as strategy-pattern:
+    // Can be strategy-pattern:
     // private IMovable, IShootable, IExplodable and etc...
 
     private Healthable _healthable;
@@ -15,8 +13,6 @@ public class Enemy : MonoBehaviour
         // Disable animations on dead if exist
 
         if (TryGetComponent(out _healthable) && TryGetComponent(out _animatable))
-        {
             _healthable.OnDied.AddListener(_animatable.DisableAnimations);
-        }
     }
 }

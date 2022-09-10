@@ -4,11 +4,10 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private PoolProjectiles _poolProjectiles;
-
-    // Replace on Transform
     [SerializeField] private Transform _shootingPosition;
 
     public bool CanShoot;
+
 
     public void Shoot(Vector3 pointerPosition)
     {

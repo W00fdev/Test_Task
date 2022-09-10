@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -15,11 +12,9 @@ public class Animatable : MonoBehaviour
 
     private void PlayAnimation(string animationName)
     {
-        // Stop multiple triggering
-        // get behaviours
+        // Prevent multiple triggering
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName(animationName) == false)
             _animator.SetTrigger(animationName);
-
     }
 
     public void PlayIdle() => PlayAnimation(_idleTriggerName);

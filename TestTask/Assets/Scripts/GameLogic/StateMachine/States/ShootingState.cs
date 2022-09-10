@@ -3,6 +3,7 @@ public class ShootingState : BaseState
     private readonly TargetsSpotter _targetsSpotter;
     private readonly Animatable _animatable;
 
+
     public ShootingState(IStateSwitcher stateSwitcher, TargetsSpotter targetsSpotter, Animatable animatable)
 	: base(stateSwitcher)
 	{

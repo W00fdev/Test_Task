@@ -3,6 +3,7 @@ public class RunState : BaseState
     private readonly PathDirector _pathDirector;
     private readonly Animatable _animatable;
 
+
     public RunState(IStateSwitcher stateSwitcher, PathDirector pathDirector, Animatable animatable) 
         : base(stateSwitcher)
     {

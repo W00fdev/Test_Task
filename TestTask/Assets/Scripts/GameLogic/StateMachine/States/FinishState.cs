@@ -1,8 +1,10 @@
 using UnityEngine.SceneManagement;
 
+
 public class FinishState : BaseState
 {
     private readonly Animatable _animatable;
+
 
     public FinishState(IStateSwitcher stateSwitcher, Animatable animatable) 
         : base(stateSwitcher)

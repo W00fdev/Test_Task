@@ -9,10 +9,7 @@ public class StartState : BaseState
         _inputManager = inputManager;
     }
 
-    public override void Start()
-    {
-        _inputManager.OnClick = Stop;
-    }
+    public override void Start() => _inputManager.OnClick = Stop;
 
     public override void Stop()
     {

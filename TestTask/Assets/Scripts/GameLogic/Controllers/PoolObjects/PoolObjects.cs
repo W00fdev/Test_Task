@@ -1,18 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
+
 
 public class PoolObjects
 {
     private List<IPoolable> _poolables;
     private Transform _container;
-    private int _poolCount;
-
-    #region AutoExpand
     private GameObject _prefab;
+
+    private int _poolCount;
     private bool _autoExpand;
-    #endregion
 
     public PoolObjects(GameObject prefab, Transform container, 
         int count, bool autoExpand = false)

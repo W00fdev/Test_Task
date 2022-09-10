@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Ragdoller : MonoBehaviour
 {
     [SerializeField] private Transform _rigRoot;
     [SerializeField] private Rigidbody[] _ragdollRigidbodies;
 
-    // For bullet collision checking
+    // For bullet collision checking on actors
     private BoxCollider _bulletCollider;
+
 
     private void Start()
     {
@@ -16,10 +16,8 @@ public class Ragdoller : MonoBehaviour
             throw new System.MissingFieldException("Missing field _rigRoot");
 
         _ragdollRigidbodies = _rigRoot.GetComponentsInChildren<Rigidbody>();
-        
-        if (TryGetComponent(out _bulletCollider))
-        {}
 
+        TryGetComponent(out _bulletCollider);
         DisableRagdoll();
     }
 

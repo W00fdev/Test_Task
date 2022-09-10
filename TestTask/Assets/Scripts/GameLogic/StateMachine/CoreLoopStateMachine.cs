@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 public class CoreLoopStateMachine : MonoBehaviour, IStateSwitcher
 {
     [SerializeField] private PathDirector _pathDirector;
@@ -9,7 +10,7 @@ public class CoreLoopStateMachine : MonoBehaviour, IStateSwitcher
     [SerializeField] private TargetsSpotter _targetsSpotter;
     [SerializeField] private Animatable _animatablePlayer;
 
-    // Disable when not in shooting state
+    // Disable shooting when not in shooting state
     [SerializeField] private PlayerShooting _playerShooting;
 
     private BaseState _currentState;
@@ -35,5 +36,4 @@ public class CoreLoopStateMachine : MonoBehaviour, IStateSwitcher
         _playerShooting.CanShoot = _currentState is ShootingState;
         _currentState.Start();
     }
-
 }

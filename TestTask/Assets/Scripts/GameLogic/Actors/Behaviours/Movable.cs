@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Movable : MonoBehaviour
 {
+    [Header("For smooth rotations on waypoints")]
     [SerializeField] private float _angularSpeedRotation = 5f;
 
     private readonly float _stoppingDistanceError = 0.1f;
@@ -14,6 +15,7 @@ public class Movable : MonoBehaviour
     private bool _isMoving;
 
     public UnityAction OnDestinationReached;
+
 
     private void Awake()
     {
@@ -52,7 +54,7 @@ public class Movable : MonoBehaviour
     public void ForceNewPositionRotation(Vector3 position, Vector3 rotation) 
         => transform.SetPositionAndRotation(position, Quaternion.Euler(rotation));
 
-    public void SetNewRotation(Vector3 eulerRotation)
+    public void SetNewRotationSmooth(Vector3 eulerRotation)
         => StartCoroutine(SmoothLookAt(Quaternion.Euler(eulerRotation)));
 
     private IEnumerator SmoothLookAt(Quaternion targetRotation)
@@ -66,5 +68,4 @@ public class Movable : MonoBehaviour
             t += Time.deltaTime * _angularSpeedRotation;
         }
     }
-
 }
