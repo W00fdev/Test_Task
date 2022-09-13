@@ -14,7 +14,7 @@ public class ShootingState : BaseState
 	public override void Start()
 	{
         _targetsSpotter.OnTargetsCleared = Stop;
-        _animatable.PlayIdle();
+        _animatable.PlayAnimation(AnimatorState.IDLE);
 	}
 
 	public override void Stop()

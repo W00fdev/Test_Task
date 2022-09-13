@@ -15,7 +15,7 @@ public class RunState : BaseState
     {
         _pathDirector.WaypointReached = StopByWaypointType;
         _pathDirector.MoveNextWaypoint();
-        _animatable.PlayRun();
+        _animatable.PlayAnimation(AnimatorState.RUN);
     }
 
     public override void Stop()

@@ -14,7 +14,7 @@ public class FinishState : BaseState
 
     public override void Start()
     {
-        _animatable.PlayIdle();
+        _animatable.PlayAnimation(AnimatorState.IDLE);
         Stop();
     }
 
